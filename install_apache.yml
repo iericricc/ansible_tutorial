@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become : true
+  tasks:
+
+  - name: Update Repository Index
+    yum:
+      update_cache: yes
+
+  - name: Install Apache2 Package
+    yum:
+      name: httpd
+      state: latest
+
+  - name: Add PHP Support for Apache2
+    yum:
+      name: mod_php74
+      state: latest
